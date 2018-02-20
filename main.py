@@ -8,9 +8,19 @@ import metricComputer as MComp
 
 def main():
 	timeVsSellValues = KPAPI.getLastOperationsFromTradesInfos('XXBTZEUR')
-	plt.plot(timeVsSellValues[:200,1]) #Plots ops from the last 200 minutes
+	EMA = MComp.ComputeEMA(timeVsSellValues)
+	timeVsSellValuesBis=timeVsSellValues.astype(np.float64)
+	ipdb.set_trace()
+
+	plt.figure(1)
+	ax = plt.subplot(211)
+	ax.set_title("BTCEUR vs TIME")
+	plt.plot(timeVsSellValuesBis[:200,0], timeVsSellValuesBis[:200,1])
+
+	ax = plt.subplot(212)
+	ax.set_title("EMA(BTCEUR vs TIME)")
+	plt.plot(timeVsSellValuesBis[:200,0], EMA[:200], 'r--')
 	plt.show()
-	MComp.ComputeEMA(timeVsSellValues)
  
 
 if __name__ == "__main__":

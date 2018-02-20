@@ -3,11 +3,15 @@ import numpy as NP
 import ipdb
 
 def ComputeMA(data):
-	#Exponential moving average
-	D = PD.Series(data[:,0], data[:,1])
-	d_mva = PD.rolling_mean(D, 10)
+	#moving average
+	D = PD.Series(data[:,1])
+	return D.rolling(center=False,window=10).mean()
+	#ipdb.set_trace()
 
 def ComputeEMA(data):
 	#Exponential moving average
-	D = PD.Series(data[:,0], data[:,1])
+	D = PD.Series(data[:,1])
+	return PD.ewma(D,0.99)
+	#ipdb.set_trace()
+
 
