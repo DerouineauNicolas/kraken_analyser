@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import numpy as np
-import matplotlib.pyplot as plt
 import requests
 import json
 import ipdb
@@ -20,9 +19,4 @@ def getLastOperationsFromTradesInfos(pair):
 	#open_value = A[:,1]
 	#ipdb.set_trace()
 
-operations = getLastOperationsFromTradesInfos('XXBTZEUR')
 
-
-ipdb.set_trace()
-plt.plot(operations[:,1]) #Plots ops from the last 1000 minutes
-plt.show() 
