@@ -4,11 +4,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import ipdb
 import krakenPublicAPI as KPAPI
+import metricComputer as MComp
 
 def main():
-	operations = KPAPI.getLastOperationsFromTradesInfos('XXBTZEUR')
-	plt.plot(operations[:200,1]) #Plots ops from the last 200 minutes
-	plt.show() 
+	timeVsSellValues = KPAPI.getLastOperationsFromTradesInfos('XXBTZEUR')
+	plt.plot(timeVsSellValues[:200,1]) #Plots ops from the last 200 minutes
+	plt.show()
+	MComp.ComputeEMA(timeVsSellValues)
+ 
 
 if __name__ == "__main__":
     # execute only if run as a script
