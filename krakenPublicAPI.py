@@ -15,8 +15,6 @@ def getLastOperationsFromTradesInfos(pair):
 	#ipdb.set_trace()
 	#A = <price>, <volume>, <time>, <buy/sell>, <market/limit>, <miscellaneous>
 	return np.column_stack((A[:,2],A[:,0]))
-	#time = A[:,0]
-	#open_value = A[:,1]
 	#ipdb.set_trace()
 
 

@@ -5,8 +5,15 @@ import numpy as np
 import ipdb
 import krakenPublicAPI as KPAPI
 
-operations = KPAPI.getLastOperationsFromTradesInfos('XXBTZEUR')
+def main():
+	operations = KPAPI.getLastOperationsFromTradesInfos('XXBTZEUR')
+	plt.plot(operations[:200,1]) #Plots ops from the last 200 minutes
+	plt.show() 
 
-#ipdb.set_trace()
-plt.plot(operations[:200,1]) #Plots ops from the last 200 minutes
-plt.show() 
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()
+
+
+
+
