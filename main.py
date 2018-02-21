@@ -10,16 +10,16 @@ def main():
 	timeVsSellValues = KPAPI.getLastOperationsFromTradesInfos('XXBTZEUR')
 	EMA = MComp.ComputeEMA(timeVsSellValues)
 	timeVsSellValuesBis=timeVsSellValues.astype(np.float64)
-	ipdb.set_trace()
+	#ipdb.set_trace()
 
 	plt.figure(1)
 	ax = plt.subplot(211)
 	ax.set_title("BTCEUR vs TIME")
-	plt.plot(timeVsSellValuesBis[:200,0], timeVsSellValuesBis[:200,1])
+	plt.plot(timeVsSellValuesBis[:,0], timeVsSellValuesBis[:,1])
 
 	ax = plt.subplot(212)
 	ax.set_title("EMA(BTCEUR vs TIME)")
-	plt.plot(timeVsSellValuesBis[:200,0], EMA[:200], 'r--')
+	plt.plot(timeVsSellValuesBis[:,0], EMA[:], 'r--')
 	plt.show()
  
 
