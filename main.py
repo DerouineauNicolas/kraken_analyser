@@ -6,11 +6,21 @@ import ipdb
 import krakenPublicAPI as KPAPI
 import metricComputer as MComp
 
+from sklearn.neural_network import MLPRegressor
+
 def main():
 	timeVsSellValues = KPAPI.getLastOperationsFromTradesInfos('XXBTZEUR')
 	EMA = MComp.ComputeEMA(timeVsSellValues)
 	timeVsSellValuesBis=timeVsSellValues.astype(np.float64)
 	#ipdb.set_trace()
+	reg = MLPRegressor(hidden_layer_sizes=(50,))
+	#Training on first 980 samples
+	reg.fit(timeVsSellValuesBis[980:,0].reshape(-1, 1),timeVsSellValuesBis[980:,1].reshape(-1, 1))
+
+	#Predicting next 20 samples
+	predict=reg.predict(timeVsSellValuesBis[:20,0].reshape(-1, 1))
+
+	ipdb.set_trace()
 
 	plt.figure(1)
 	ax = plt.subplot(211)
