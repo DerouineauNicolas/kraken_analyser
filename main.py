@@ -14,11 +14,11 @@ def main():
 	timeVsSellValuesBis=timeVsSellValues.astype(np.float64)
 	#ipdb.set_trace()
 	reg = MLPRegressor(hidden_layer_sizes=(50,))
-	#Training on first 980 samples
-	reg.fit(timeVsSellValuesBis[980:,0].reshape(-1, 1),timeVsSellValuesBis[980:,1].reshape(-1, 1))
+	#Training on first 999 samples
+	reg.fit(timeVsSellValuesBis[:999,0].reshape(-1, 1),timeVsSellValuesBis[:999,1].reshape(-1, 1))
 
-	#Predicting next 20 samples
-	predict=reg.predict(timeVsSellValuesBis[:20,0].reshape(-1, 1))
+	#Predicting next 1 samples
+	predict=reg.predict(timeVsSellValuesBis[-1:,0].reshape(-1, 1))
 
 	ipdb.set_trace()
 
