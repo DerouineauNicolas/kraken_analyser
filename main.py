@@ -20,7 +20,7 @@ def main():
 	#Predicting next 1 samples
 	predict=reg.predict(timeVsSellValuesBis[-1:,0].reshape(-1, 1))
 
-	ipdb.set_trace()
+	#ipdb.set_trace()
 
 	plt.figure(1)
 	ax = plt.subplot(211)

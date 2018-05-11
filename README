@@ -1,0 +1,8 @@
+1, Install dependancies:
+sudo apt-get install python3-pip python3-tk python3-ipdb && pip3 install numpy matplotlib panda
+
+2, Run program
+python3 main.py
+
+The cryptocurrency API used in this programm to collect/submit data is located here:
+https://www.kraken.com/help/api
